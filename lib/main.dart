@@ -100,7 +100,7 @@ class CountView extends StatelessWidget {
                 value.toString(),
                 style: Theme.of(context).textTheme.headline4,
               ),
-          (context, provider) => provider?.count ?? 0)
+          (context, data) => data?.count ?? 0)
     ]);
   }
 }
@@ -186,7 +186,7 @@ class _ProviderState<T extends ChangeNotifier> extends State<Provider<T>> {
 }
 
 /// Selector
-typedef SelectorFunction<A, S> = S Function(BuildContext context, A? provider);
+typedef SelectorFunction<A, S> = S Function(BuildContext context, A? data);
 typedef SelectorBuilderFuntion<S> = Function(BuildContext context, S value);
 
 class Selector<A extends ChangeNotifier, S> extends StatefulWidget {
